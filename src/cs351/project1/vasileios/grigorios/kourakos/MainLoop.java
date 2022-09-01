@@ -1,3 +1,5 @@
+package cs351.project1.vasileios.grigorios.kourakos;
+
 import javafx.application.Application;
 import javafx.animation.AnimationTimer;
 import java.time.Duration;

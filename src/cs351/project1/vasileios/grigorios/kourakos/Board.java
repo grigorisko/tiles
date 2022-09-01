@@ -1,5 +1,6 @@
+package cs351.project1.vasileios.grigorios.kourakos;
+
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

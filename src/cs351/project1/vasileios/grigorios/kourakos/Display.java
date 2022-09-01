@@ -1,3 +1,5 @@
+package cs351.project1.vasileios.grigorios.kourakos;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;

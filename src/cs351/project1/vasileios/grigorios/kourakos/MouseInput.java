@@ -1,3 +1,5 @@
+package cs351.project1.vasileios.grigorios.kourakos;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
