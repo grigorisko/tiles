@@ -7,9 +7,11 @@ public class Tile extends StackPane {
     private ImageView innerPattern;
     private ImageView middlePattern;
     private ImageView outerPattern;
-    private boolean innerActive;
-    private boolean middleActive;
-    private boolean outerActive;
+    private ImageView highlightImg;
+    private boolean innerActive = true;
+    private boolean middleActive = true;
+    private boolean outerActive = true;
+    private boolean highlighted;
 
     public void setInnerPattern(ImageView innerPattern) {
         this.innerPattern = innerPattern;
@@ -45,21 +47,48 @@ public class Tile extends StackPane {
         return this.outerPattern;
     }
 
+    public boolean isInnerActive() {
+        return innerActive;
+    }
+
+    public boolean isMiddleActive() {
+        return middleActive;
+    }
+
+    public boolean isOuterActive() {
+        return outerActive;
+    }
+
     public void setInnerActive(boolean innerActive) {
         if (!innerActive) {
             this.getChildren().remove(this.innerPattern);
+            this.innerActive = false;
         }
     }
 
     public void setMiddleActive(boolean middleActive) {
-        if (!innerActive) {
+        if (!middleActive) {
             this.getChildren().remove(this.middlePattern);
+            this.middleActive = false;
         }
     }
 
     public void setOuterActive(boolean outerActive) {
-        if (!innerActive) {
+        if (!outerActive) {
             this.getChildren().remove(this.outerPattern);
+            this.outerActive = false;
+        }
+    }
+
+    public void setHighlighted(Image highlightImg,boolean highlight){
+        if (!highlighted && highlight) {
+            this.highlightImg = new ImageView((highlightImg));
+            this.getChildren().add(this.highlightImg);
+            highlighted = true;
+        }
+        else if (highlighted && !highlight) {
+            this.getChildren().remove(this.highlightImg);
+            highlighted = false;
         }
     }
 

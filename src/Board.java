@@ -1,4 +1,6 @@
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -12,7 +14,7 @@ public class Board {
     private final FileInputStream outerImageLoc1 = new FileInputStream("resources/triangle.png");
     private final FileInputStream outerImageLoc2 = new FileInputStream("resources/triangle.png");
     private final FileInputStream outerImageLoc3 = new FileInputStream("resources/triangle.png");
-
+    private final FileInputStream highlightImgLoc = new FileInputStream("resources/highlight.png");
     private final Image innerImage1 = new Image(innerImageLoc1);
     private final Image innerImage2 = new Image(innerImageLoc2);
     private final Image innerImage3 = new Image(innerImageLoc3);
@@ -22,6 +24,7 @@ public class Board {
     private final Image outerImage1 = new Image(outerImageLoc1);
     private final Image outerImage2 = new Image(outerImageLoc2);
     private final Image outerImage3 = new Image(outerImageLoc3);
+    private final Image highlightImg = new Image(highlightImgLoc);
 
     private final int rows = 4;
     private final int columns = 5;
@@ -50,8 +53,24 @@ public class Board {
     }
 
     public void setSelectedTile(Tile selectedTile) {
+
         if(this.selectedTile==null) {
             this.selectedTile = selectedTile;
+            selectedTile.setHighlighted(highlightImg, true);
+            System.out.println((this.selectedTile.getInnerPattern().getImage()));
+            System.out.println((selectedTile.getInnerPattern().getImage()));
+        }
+        else if(selectedTile.getInnerPattern().getImage().equals(
+                this.selectedTile.getInnerPattern().getImage())
+                && !selectedTile.equals(this.selectedTile)) {
+            if (selectedTile.isInnerActive() && this.selectedTile.isInnerActive()) {
+                this.selectedTile.setInnerActive(false);
+                selectedTile.setInnerActive(false);
+                this.selectedTile.setHighlighted(highlightImg, false);
+                selectedTile.setHighlighted(highlightImg, true);
+                this.selectedTile = selectedTile;
+                System.out.println("test");
+            }
         }
     }
 }
