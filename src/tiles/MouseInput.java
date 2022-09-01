@@ -1,4 +1,4 @@
-package cs351.project1.vasileios.grigorios.kourakos;
+package tiles;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

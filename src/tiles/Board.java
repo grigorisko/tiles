@@ -1,4 +1,4 @@
-package cs351.project1.vasileios.grigorios.kourakos;
+package tiles;
 
 import javafx.scene.image.Image;
 
