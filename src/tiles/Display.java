@@ -9,11 +9,25 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Name: Vasileios Grigorios Kourakos
+ * This Display class extends JavaFX Application and is the
+ * GUI class of my project. It creates, displays and manipulates
+ * the GUI for the game.
+ */
 public class Display extends Application{
     private final GridPane gridPane = new GridPane();
 
 
-
+    /**
+     * The launch method for the application. Creates all the GUI
+     * elements and displays them.
+     * I also add the Mouse Event Handlers to the tiles here.
+     * @param stage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     */
     @Override
     public void start(Stage stage) {
         Score score = new Score();
@@ -42,7 +56,8 @@ public class Display extends Application{
         stage.show();
     }
 
-    public void initializeScene(Tile[] tiles, int rows, int columns) {
+
+    private void initializeScene(Tile[] tiles, int rows, int columns) {
         gridPane.getChildren().clear();
         int i = 0;
         for (int j=0; j< rows;j++) {
@@ -53,10 +68,19 @@ public class Display extends Application{
         }
     }
 
+    /**
+     * Getter for the GridPane of the scene
+     * @return gridPane
+     */
     public GridPane getGridPane() {
         return gridPane;
     }
 
+    /**
+     * This method is called when the Board logic
+     * finds that the game has ended. Simply adds a text
+     * that notifies the player that the game is over.
+     */
     public void endGame() {
         String overString = "Congratulations! You matched all the tiles.";
         Text gameOver = new Text(10,50, overString);
