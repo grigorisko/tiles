@@ -10,33 +10,32 @@ public class Tile extends StackPane {
     private ImageView middlePattern;
     private ImageView outerPattern;
     private ImageView highlightImg;
+    private boolean innerInitialized = false;
+    private boolean middleInitialized = false;
+    private boolean outerInitialized = false;
     private boolean innerActive = true;
     private boolean middleActive = true;
     private boolean outerActive = true;
     private boolean highlighted;
 
-    public void setInnerPattern(ImageView innerPattern) {
-        this.innerPattern = innerPattern;
-    }
-
-    public void setMiddlePattern(ImageView middlePattern) {
-        this.middlePattern = middlePattern;
-    }
-
-    public void setOuterPattern(ImageView outerPattern) {
-        this.outerPattern = outerPattern;
-    }
-
-    public Tile(Image innerPattern, Image middlePattern, Image outerPattern) {
+    public void setInnerPattern(Image innerPattern) {
         this.innerPattern = new ImageView(innerPattern);
-        this.middlePattern = new ImageView(middlePattern);
-        this.outerPattern = new ImageView(outerPattern);
         this.getChildren().add(this.innerPattern);
-        this.getChildren().add(this.middlePattern);
-        this.getChildren().add(this.outerPattern);
-
     }
 
+    public void setMiddlePattern(Image middlePattern) {
+        this.middlePattern = new ImageView(middlePattern);
+        this.getChildren().add(this.middlePattern);
+    }
+
+    public void setOuterPattern(Image outerPattern) {
+        this.outerPattern = new ImageView(outerPattern);
+        this.getChildren().add(this.outerPattern);
+    }
+
+    public Tile() {
+
+    }
     public ImageView getInnerPattern() {
         return this.innerPattern;
     }
@@ -94,4 +93,27 @@ public class Tile extends StackPane {
         }
     }
 
+    public boolean isInnerInitialized() {
+        return innerInitialized;
+    }
+
+    public void setInnerInitialized(boolean innerInitialized) {
+        this.innerInitialized = innerInitialized;
+    }
+
+    public boolean isMiddleInitialized() {
+        return middleInitialized;
+    }
+
+    public void setMiddleInitialized(boolean middleInitialized) {
+        this.middleInitialized = middleInitialized;
+    }
+
+    public boolean isOuterInitialized() {
+        return outerInitialized;
+    }
+
+    public void setOuterInitialized(boolean outerInitialized) {
+        this.outerInitialized = outerInitialized;
+    }
 }
